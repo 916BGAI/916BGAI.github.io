@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World !&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> Hello World </category>
+          
+      </categories>
+      
       
     </entry>
     
