@@ -1,1 +1,36 @@
-function siteTime(){window.setTimeout("siteTime()",1e3);var e=6e4,t=36e5,o=864e5,i=new Date,a=i.getFullYear(),n=i.getMonth()+1,r=i.getDate(),l=i.getHours(),s=i.getMinutes(),M=i.getSeconds(),g=Date.UTC(2021,9,26,14,0,0),m=Date.UTC(a,n,r,l,s,M)-g,T=Math.floor(m/31536e6),f=Math.floor(m/o-365*T),h=Math.floor((m-(365*T+f)*o)/t),u=Math.floor((m-(365*T+f)*o-h*t)/e),d=Math.floor((m-(365*T+f)*o-h*t-u*e)/1e3);document.getElementById("sitetime").innerHTML=" 网站在各种灾难中运行了"+f+" 天 "+h+" 小时 "+u+" 分钟 "+d+" 秒"}siteTime();
+
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2021,09,26,14,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 网站在各种灾难中运行了"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
