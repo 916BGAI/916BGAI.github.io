@@ -6387,7 +6387,6 @@ blockquote.pullquote.right {
 .read-mode #article-container .note .note-icon {
   color: var(--font-color);
 }
-@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 .search-dialog {
   position: fixed;
   top: 10%;
